@@ -1,6 +1,10 @@
 'use strict';
+const zipCode = $('.zipSearch').val();
+const radius = $('.radiusValue').val();
+const typeOf = $('.type').val();
 
-const url = 'https://api.rescuegroups.org/http/v2.json';
+function petSearch(zipCode, radius) {
+  const url = 'https://api.rescuegroups.org/http/v2.json';
 const data = { "apikey": "PlqQjhlx", "objectType": "animals", "objectAction": "publicSearch",  "search":
 {
     "resultStart": "0",
@@ -17,12 +21,12 @@ const data = { "apikey": "PlqQjhlx", "objectType": "animals", "objectAction": "p
         {
             "fieldName": "animalLocationDistance",
             "operation": "radius",
-            "criteria": "50"
+            "criteria": `${radius}`
         },
         {
             "fieldName": "animalLocation",
             "operation": "equals",
-            "criteria": "20715"
+            "criteria": `${zipCode}`
         }
     ],
     "filterProcessing": "1",
@@ -32,8 +36,6 @@ const data = { "apikey": "PlqQjhlx", "objectType": "animals", "objectAction": "p
     ]
      
 } }
-
-function petSearch() {
   try {
     const response = fetch(url, {
       method: 'POST',
@@ -55,4 +57,16 @@ function petSearch() {
   }
 }
 
-petSearch();
+
+function searchHandler() {
+  petSearch(zipCode, radius, typeOf);
+}
+
+function watchForm() {
+  $('form').submit(event => {
+    event.preventDefault();
+    searchHandler();
+  });
+}
+
+$(watchForm);
