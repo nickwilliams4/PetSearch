@@ -2,7 +2,7 @@
 
 const store = {
   species: [],
-  colors: []
+  pets: []
 };
 function loadSpecies() {
   const url = "https://api.rescuegroups.org/http/v2.json";
@@ -42,7 +42,7 @@ function petSearch(zipCode, radius, typeOf) {
 const data = { "apikey": "PlqQjhlx", "objectType": "animals", "objectAction": "publicSearch",  "search":
 {
     "resultStart": "0",
-    "resultLimit": "20",
+    "resultLimit": "1",
     "resultSort": "animalID",
     "resultOrder": "asc",
     "filters":
@@ -88,16 +88,21 @@ const data = { "apikey": "PlqQjhlx", "objectType": "animals", "objectAction": "p
       }
       return response.json();
     })
-    .then(responseJson => 
-      displayResults(responseJson))
-    } catch (error) {
+    .then(responseJson => {
+      store.pets = responseJson.data;
+      console.log(responseJson)
+      const petList = Object.keys(store.pets)
+        .map(pets => `<div>${store.pets[pets].animalDescription}</div>`)
+        .join("");
+        displayResults(petList)
+    });
+   } catch (error) {
     console.error('Error:', error);
   }
 }
 
 function displayResults(results) {
-  console.log(results);
-  $('.searchResults').html(results.data)
+  $('.searchResults').html(results)
   if (results.total == 0) {
     $('.error-message').html('No results. Please try your search again.')
   }
