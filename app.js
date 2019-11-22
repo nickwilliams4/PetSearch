@@ -231,24 +231,23 @@ function petSearch(zipCode, radius, typeOf) {
       })
       .then(responseJson => {
         store.pets = responseJson.data;
-        console.log(responseJson);
         const pics = Object.keys(store.pics)
           .map(pics => `<div>${store.pics[pics].animalPictures}</div>`)
           .join("");
         const petList = Object.keys(store.pets)
           .map(
             pets =>
+            (store.pets[pets].animalPictures.length > 0) ?
               `<div class="animal" data-id="${pets}">
-              <div><img src="${store.pets[pets].animalPictures[0].small.url}"/></div>
+              <div><img src="${store.pets[pets].animalPictures[0].small.url}" alt="No Image"/></div>
               <div>${store.pets[pets].animalName}</div>
               <div>${store.pets[pets].animalBreed}</div>
               <div>${store.pets[pets].animalAgeString}</div>
               <a href="#" class="moreInfo">More Info</a><br>
               <div class="description">${store.pets[pets].animalDescription}</div>
-              </div>`
+              </div>` : ''
           )
-          .join("");
-          
+          .join(""); 
         $(".nextButton").show();
         displayResults(petList, pics, showMoreInfoHandler);
       });
