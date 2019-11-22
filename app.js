@@ -248,6 +248,7 @@ function petSearch(zipCode, radius, typeOf) {
               </div>`
           )
           .join("");
+          
         $(".nextButton").show();
         displayResults(petList, pics, showMoreInfoHandler);
       });
@@ -281,8 +282,9 @@ function previousButtonHandler(event) {
 function displayResults(results) {
   $(".searchResults").html(results);
   $(".moreInfo").on("click", showMoreInfoHandler);
-  if (results.total == 0) {
-    $(".error-message").html("No results. Please try your search again.");
+  if (results == 0) {
+    $(".errorMessage").html("No results. Please try your search again.");
+    $('.nextButton').hide();
   }
   $("#btnClose").on("click", event => {
     $(".modal").css("display", "none");
