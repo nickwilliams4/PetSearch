@@ -2,7 +2,8 @@
 
 const store = {
   species: [],
-  pets: []
+  pets: [],
+  pics: []
 };
 function loadSpecies() {
   const url = "https://api.rescuegroups.org/http/v2.json";
@@ -42,7 +43,7 @@ function petSearch(zipCode, radius, typeOf) {
 const data = { "apikey": "PlqQjhlx", "objectType": "animals", "objectAction": "publicSearch",  "search":
 {
     "resultStart": "0",
-    "resultLimit": "1",
+    "resultLimit": "10",
     "resultSort": "animalID",
     "resultOrder": "asc",
     "filters":
@@ -91,18 +92,33 @@ const data = { "apikey": "PlqQjhlx", "objectType": "animals", "objectAction": "p
     .then(responseJson => {
       store.pets = responseJson.data;
       console.log(responseJson)
-      const petList = Object.keys(store.pets)
-        .map(pets => `<div>${store.pets[pets].animalDescription}</div>`)
+      const pics = Object.keys(store.pics)
+        .map(pics => `<div>${store.pics[pics].animalPictures}</div>`)
         .join("");
-        displayResults(petList)
+      const petList = Object.keys(store.pets)
+        .map(pets => `<br><div>${store.pets[pets].animalPictures[0]}</div><div>${store.pets[pets].animalName}</div><div>${store.pets[pets].animalBreed}</div><div>${store.pets[pets].animalAgeString}</div><a href="#" class="moreInfo">More Info</a><br><div class="description">${store.pets[pets].animalDescription}</div>`)
+        .join("");
+        $('.nextButton').show();
+        displayResults(petList, pics, showMoreInfohandler)
     });
    } catch (error) {
     console.error('Error:', error);
   }
 }
 
+function showMoreInfohandler(event) {
+  event.preventDefault();
+  $('.description').show();
+}
+
+function previousButtonHandler(event) {
+  event.preventDefault();
+  $('.previous').show();
+}
+
 function displayResults(results) {
   $('.searchResults').html(results)
+  $('.moreInfo').on('click', showMoreInfohandler);
   if (results.total == 0) {
     $('.error-message').html('No results. Please try your search again.')
   }
@@ -119,6 +135,7 @@ function watchForm() {
   $('form').submit(event => {
     event.preventDefault();
     searchHandler();
+    $('.nextButton').on('click', previousButtonHandler);
   });
 }
 loadSpecies();

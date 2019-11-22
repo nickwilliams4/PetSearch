@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,40 +8,37 @@
   <link rel="stylesheet" href="main.css">
   <title>Pet Search</title>
 </head>
+
 <body>
   <div class="container">
     <h1>Welcome to Pet Search!</h1>
     <h3>Find a pet available for adoption by completing the form below</h3>
-    <form class ="searchForm">
-        <label for="zipCode">ZIP Code:</label>
-        <input type="text" name="zipSearch" class="zipSearch" required>
+    <form class="searchForm">
+      <label for="zipCode">ZIP Code:</label>
+      <input type="text" name="zipSearch" class="zipSearch" required>
 
-        <div class="radiusDropdown" required>
-          Search Radius:
-            <select class="radiusValue">
-                <option value="25 Miles">25 Miles</option>
-                <option value="50 Miles">50 Miles</option>
-                <option value="100 Miles">100 Miles</option>
-                <option value="100+ Miles">100+ Miles</option>
-              </select>
-          </div>
-        <div class="typeOfPet" required>
-          Type of Pet:
-            <select class="type">
-                <!-- <option value="Dog">Dog</option>
-                <option value="Cat">Cat</option>
-                <option value="Horse">Horse</option>
-                <option value="Rabbit">Rabbit</option> -->
-              </select>
-        </div>
+      <div class="radiusDropdown" required>
+        Search Radius:
+        <select class="radiusValue">
+          <option value="25 Miles">25 Miles</option>
+          <option value="50 Miles">50 Miles</option>
+          <option value="100 Miles">100 Miles</option>
+          <option value="100+ Miles">100+ Miles</option>
+        </select>
+      </div>
+      <div class="typeOfPet" required>
+        Type of Pet:
+        <select class="type">
+        </select>
+      </div>
 
-        <div class="searchResults"></div>
-        <div class="selectedPet"></div>
-        <p class="errorMessage"></p>
+      <div class="searchResults"></div>
+      <p class="errorMessage"></p>
+      <a href="#" class="previous">&laquo; Previous</a> <a href="#" class="nextButton">Next &raquo;</a><br><br>
 
-        <input type="submit" value="Seach for Pets!" class="searchButton">
+      <input type="submit" value="Seach for Pets!" class="searchButton">
     </form>
-</div>
+  </div>
 
 
 
@@ -49,4 +47,5 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="app.js"></script>
 </body>
+
 </html>
