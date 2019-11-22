@@ -299,8 +299,8 @@ function searchHandler() {
 }
 
 function newSearch() {
-  $('.searchButton').hide();
-  $('.newSearchButton').show();
+  $(".searchButton").hide();
+  $(".newSearchButton").show();
 }
 
 function watchForm() {
