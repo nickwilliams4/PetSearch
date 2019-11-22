@@ -8,3 +8,29 @@
 .description {
   display: none;
 }
+
+.animal {
+  margin-top: 10px;
+  border-bottom: solid 0.5px rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  background: white;
+  width: 80vw;
+  height: 80vh;
+  padding: 10px;
+  border-radius: 10px;
+  overflow: scroll;
+}

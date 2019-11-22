@@ -1,51 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="main.css" />
+    <title>Pet Search</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="main.css">
-  <title>Pet Search</title>
-</head>
+  <body>
+    <div class="container">
+      <h1>Welcome to Pet Search!</h1>
+      <h3>Find a pet available for adoption by completing the form below</h3>
+      <form class="searchForm">
+        <label for="zipCode">ZIP Code:</label>
+        <input type="text" name="zipSearch" class="zipSearch" required />
 
-<body>
-  <div class="container">
-    <h1>Welcome to Pet Search!</h1>
-    <h3>Find a pet available for adoption by completing the form below</h3>
-    <form class="searchForm">
-      <label for="zipCode">ZIP Code:</label>
-      <input type="text" name="zipSearch" class="zipSearch" required>
+        <div class="radiusDropdown" required>
+          Search Radius:
+          <select class="radiusValue">
+            <option value="25 Miles">25 Miles</option>
+            <option value="50 Miles">50 Miles</option>
+            <option value="100 Miles">100 Miles</option>
+            <option value="100+ Miles">100+ Miles</option>
+          </select>
+        </div>
+        <div class="typeOfPet" required>
+          Type of Pet:
+          <select class="type"> </select>
+        </div>
 
-      <div class="radiusDropdown" required>
-        Search Radius:
-        <select class="radiusValue">
-          <option value="25 Miles">25 Miles</option>
-          <option value="50 Miles">50 Miles</option>
-          <option value="100 Miles">100 Miles</option>
-          <option value="100+ Miles">100+ Miles</option>
-        </select>
+        <div class="searchResults"></div>
+        <p class="errorMessage"></p>
+        <a href="#" class="previous">&laquo; Previous</a>
+        <a href="#" class="nextButton">Next &raquo;</a><br /><br />
+
+        <input type="submit" value="Seach for Pets!" class="searchButton" />
+      </form>
+    </div>
+
+    <div class="modal">
+      <div class="wrapper">
+        <div class="name">gsgsg</div>
+        <div class="image"></div>
+        <div class="petDescription">hshsjja</div>
+        <button id="btnClose">Close</button>
       </div>
-      <div class="typeOfPet" required>
-        Type of Pet:
-        <select class="type">
-        </select>
-      </div>
+    </div>
 
-      <div class="searchResults"></div>
-      <p class="errorMessage"></p>
-      <a href="#" class="previous">&laquo; Previous</a> <a href="#" class="nextButton">Next &raquo;</a><br><br>
-
-      <input type="submit" value="Seach for Pets!" class="searchButton">
-    </form>
-  </div>
-
-
-
-
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="app.js"></script>
-</body>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
