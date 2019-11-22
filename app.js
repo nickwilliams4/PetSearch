@@ -46,7 +46,7 @@ function petSearch(zipCode, radius, typeOf) {
     objectAction: "publicSearch",
     search: {
       resultStart: "0",
-      resultLimit: "10",
+      resultLimit: "25",
       resultSort: "animalID",
       resultOrder: "asc",
       filters: [
@@ -296,10 +296,16 @@ function searchHandler() {
   petSearch(zipCode, radius, typeOf);
 }
 
+function newSearch() {
+  $('.searchButton').hide();
+  $('.newSearchButton').show();
+}
+
 function watchForm() {
   $("form").submit(event => {
     event.preventDefault();
     searchHandler();
+    newSearch();
     $(".nextButton").on("click", previousButtonHandler);
   });
 }

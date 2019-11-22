@@ -8,6 +8,9 @@
 .description {
   display: none;
 }
+.newSearchButton {
+  display: none;
+}
 
 .animal {
   margin-top: 10px;
