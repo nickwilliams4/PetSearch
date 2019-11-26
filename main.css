@@ -1,37 +1,9 @@
-.nextButton {
-  display: none;
-}
-.previous {
-  display: none;
-}
-
-.description {
-  display: none;
-}
-.newSearchButton {
-  display: none;
-}
-.searchButtonTwo {
-  display: none;
-}
-.clearFilters {
-  display: none;
-}
-.sexOfPet {
-  display: none;
-}
-.breedOfPet {
+.description, .newSearchButton, .searchButtonTwo, .clearFilters, .sexOfPet, .nextButton, .previous, .breedOfPet, .sizeOfPet, .ageOfPet {
   display: none;
 }
 .animal {
   margin-top: 10px;
   border-bottom: solid 0.5px rgba(0, 0, 0, 0.2);
-}
-.sizeOfPet {
-  display: none;
-}
-.ageOfPet {
-  display: none;
 }
 .modal {
   position: fixed;

@@ -339,6 +339,15 @@ function searchHandler() {
   $(".searchResults").html("<h2> Loading...</h2>");
   petSearch(zipCode, radius, typeOf);
   $(".searchButtonTwo").show();
+  $(".clearFilters").show();
+  $(".errorMessage").empty()
+  $(".clearFilters").on("click", event => {
+    event.preventDefault();
+    $(".age").val("0");
+    $(".size").val("0");
+    $(".sex").val("0");
+    $(searchHandler);
+  });
 }
 
 function newSearch() {
