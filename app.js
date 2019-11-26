@@ -287,6 +287,7 @@ function displayResults(results) {
   }
   $("#btnClose").on("click", event => {
     $(".modal").css("display", "none");
+    searchHandler();
   });
 }
 
@@ -295,6 +296,7 @@ function searchHandler() {
   const radius = $(".radiusValue").val();
   const typeOf = $(".type").val();
   petSearch(zipCode, radius, typeOf);
+  $(".searchButtonTwo").show();
 }
 
 function newSearch() {
