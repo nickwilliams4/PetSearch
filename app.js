@@ -3,8 +3,44 @@
 const store = {
   species: [],
   pets: [],
-  pics: []
+  pics: [],
+  age: []
 };
+
+function loadAge() {
+  const url = "https://api.rescuegroups.org/http/v2.json";
+  const data = {
+    apikey: "PlqQjhlx",
+    objectType: "animalGeneralAge",
+    objectAction: "publicList"
+  };
+  try {
+    const response = fetch(url, {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(response.statusText);
+        }
+        return response.json();
+      })
+      .then(responseJson => {
+        store.age = responseJson.data;
+        const ageList = Object.keys(store.age)
+          .map(age => `<option value="${age}">${age}</option>`)
+          .join("");
+        $(".age").html(ageList);
+      });
+  } catch (error) {
+    console.error("Error:", error);
+  }
+  $(".ageOfPet").show();
+}
+
 function loadSpecies() {
   const url = "https://api.rescuegroups.org/http/v2.json";
   const data = {
@@ -230,6 +266,7 @@ function petSearch(zipCode, radius, typeOf) {
         return response.json();
       })
       .then(responseJson => {
+        console.log(responseJson)
         store.pets = responseJson.data;
         const pics = Object.keys(store.pics)
           .map(pics => `<div>${store.pics[pics].animalPictures}</div>`)
@@ -308,6 +345,7 @@ function watchForm() {
   $("form").submit(event => {
     event.preventDefault();
     searchHandler();
+    loadAge();
     newSearch();
     $(".nextButton").on("click", previousButtonHandler);
   });
