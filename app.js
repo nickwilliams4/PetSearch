@@ -351,6 +351,10 @@ function watchForm() {
     newSearch();
     $(".nextButton").on("click", previousButtonHandler);
   });
+  $(".ageOfPet").change(event => {
+    const age = $(".ageOfPet").val();
+    const filteredPets = store.pets.filter(pet => pet.animalGeneralAge === age)
+  })
 }
 loadSpecies();
 $(watchForm);
