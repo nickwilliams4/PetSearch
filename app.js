@@ -268,29 +268,32 @@ function petSearch(zipCode, radius, typeOf) {
       .then(responseJson => {
         console.log(responseJson)
         store.pets = responseJson.data;
-        const pics = Object.keys(store.pics)
+        render(store.pets)
+      });
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+function render(pets) {
+  const pics = Object.keys(store.pics)
           .map(pics => `<div>${store.pics[pics].animalPictures}</div>`)
           .join("");
-        const petList = Object.keys(store.pets)
+        const petList = Object.keys(pets)
           .map(
-            pets =>
-            (store.pets[pets].animalPictures.length > 0) ?
-              `<div class="animal" data-id="${pets}">
-              <div><img src="${store.pets[pets].animalPictures[0].small.url}" alt="No Image"/></div>
-              <div>${store.pets[pets].animalName}</div>
-              <div>${store.pets[pets].animalBreed}</div>
-              <div>${store.pets[pets].animalAgeString}</div>
+            pet =>
+            (pets[pet].animalPictures.length > 0) ?
+              `<div class="animal" data-id="${pet}">
+              <div><img src="${pets[pet].animalPictures[0].small.url}" alt="No Image"/></div>
+              <div>${pets[pet].animalName}</div>
+              <div>${pets[pet].animalBreed}</div>
+              <div>${pets[pet].animalAgeString}</div>
               <a href="#" class="moreInfo">More Info</a><br>
-              <div class="description">${store.pets[pets].animalDescription}</div>
+              <div class="description">${pets[pet].animalDescription}</div>
               </div>` : ''
           )
           .join(""); 
         $(".nextButton").show();
         displayResults(petList, pics, showMoreInfoHandler);
-      });
-  } catch (error) {
-    console.error("Error:", error);
-  }
 }
 
 function showMoreInfoHandler(event) {
@@ -345,7 +348,6 @@ function watchForm() {
   $("form").submit(event => {
     event.preventDefault();
     searchHandler();
-    loadAge();
     newSearch();
     $(".nextButton").on("click", previousButtonHandler);
   });

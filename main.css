@@ -14,9 +14,6 @@
 .searchButtonTwo {
   display: none;
 }
-.ageOfPet {
-  display: none;
-}
 .animal {
   margin-top: 10px;
   border-bottom: solid 0.5px rgba(0, 0, 0, 0.2);
