@@ -266,34 +266,35 @@ function petSearch(zipCode, radius, typeOf) {
         return response.json();
       })
       .then(responseJson => {
-        console.log(responseJson)
+        console.log(responseJson);
         store.pets = responseJson.data;
-        render(store.pets)
+        render(store.pets);
       });
   } catch (error) {
     console.error("Error:", error);
   }
 }
+
 function render(pets) {
   const pics = Object.keys(store.pics)
-          .map(pics => `<div>${store.pics[pics].animalPictures}</div>`)
-          .join("");
-        const petList = Object.keys(pets)
-          .map(
-            pet =>
-            (pets[pet].animalPictures.length > 0) ?
-              `<div class="animal" data-id="${pet}">
+    .map(pics => `<div>${store.pics[pics].animalPictures}</div>`)
+    .join("");
+  const petList = Object.keys(pets)
+    .map(pet =>
+      pets[pet].animalPictures.length > 0
+        ? `<div class="animal" data-id="${pet}">
               <div><img src="${pets[pet].animalPictures[0].small.url}" alt="No Image"/></div>
               <div>${pets[pet].animalName}</div>
               <div>${pets[pet].animalBreed}</div>
               <div>${pets[pet].animalAgeString}</div>
               <a href="#" class="moreInfo">More Info</a><br>
               <div class="description">${pets[pet].animalDescription}</div>
-              </div>` : ''
-          )
-          .join(""); 
-        $(".nextButton").show();
-        displayResults(petList, pics, showMoreInfoHandler);
+              </div>`
+        : ""
+    )
+    .join("");
+  $(".nextButton").show();
+  displayResults(petList, pics, showMoreInfoHandler);
 }
 
 function showMoreInfoHandler(event) {
@@ -323,7 +324,7 @@ function displayResults(results) {
   $(".moreInfo").on("click", showMoreInfoHandler);
   if (results == 0) {
     $(".errorMessage").html("No results. Please try your search again.");
-    $('.nextButton').hide();
+    $(".nextButton").hide();
   }
   $("#btnClose").on("click", event => {
     $(".modal").css("display", "none");
@@ -335,6 +336,7 @@ function searchHandler() {
   const zipCode = $(".zipSearch").val();
   const radius = $(".radiusValue").val();
   const typeOf = $(".type").val();
+  $(".searchResults").html("<h2> Loading...</h2>");
   petSearch(zipCode, radius, typeOf);
   $(".searchButtonTwo").show();
 }
@@ -351,10 +353,21 @@ function watchForm() {
     newSearch();
     $(".nextButton").on("click", previousButtonHandler);
   });
-  $(".ageOfPet").change(event => {
-    const age = $(".ageOfPet").val();
-    const filteredPets = store.pets.filter(pet => pet.animalGeneralAge === age)
-  })
+
+  $(".age").change(event => {
+    const age = $(".age").val();
+    if (age !== "0") {
+      const filteredPets = {};
+      Object.keys(store.pets).forEach(key => {
+        if (store.pets[key].animalGeneralAge === age) {
+          filteredPets[key] = store.pets[key];
+        }
+      });
+      render(filteredPets);
+    } else {
+      render(store.pets);
+    }
+  });
 }
 loadSpecies();
 $(watchForm);
