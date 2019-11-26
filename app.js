@@ -4,42 +4,42 @@ const store = {
   species: [],
   pets: [],
   pics: [],
-  age: []
+  age: [],
+  breed: []
 };
 
-function loadAge() {
-  const url = "https://api.rescuegroups.org/http/v2.json";
-  const data = {
-    apikey: "PlqQjhlx",
-    objectType: "animalGeneralAge",
-    objectAction: "publicList"
-  };
-  try {
-    const response = fetch(url, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    })
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(response.statusText);
-        }
-        return response.json();
-      })
-      .then(responseJson => {
-        store.age = responseJson.data;
-        const ageList = Object.keys(store.age)
-          .map(age => `<option value="${age}">${age}</option>`)
-          .join("");
-        $(".age").html(ageList);
-      });
-  } catch (error) {
-    console.error("Error:", error);
-  }
-  $(".ageOfPet").show();
-}
+// function loadBreed() {
+//   const url = "https://api.rescuegroups.org/http/v2.json";
+//   const data = {
+//     apikey: "PlqQjhlx",
+//     objectType: "animalBreeds",
+//     objectAction: "publicList"
+//   };
+//   try {
+//     const response = fetch(url, {
+//       method: "POST",
+//       body: JSON.stringify(data),
+//       headers: {
+//         "Content-Type": "application/json"
+//       }
+//     })
+//       .then(response => {
+//         if (!response.ok) {
+//           throw new Error(response.statusText);
+//         }
+//         return response.json();
+//       })
+//       .then(responseJson => {
+//         store.breed = responseJson.data;
+//         const breedList = Object.keys(store.breed)
+//           .map(breeds => `<option value="${breeds}">${breeds}</option>`)
+//           .join("");
+//         $(".breed").html(breedList);
+//       });
+//   } catch (error) {
+//     console.error("Error:", error);
+//   }
+// }
 
 function loadSpecies() {
   const url = "https://api.rescuegroups.org/http/v2.json";
@@ -266,34 +266,35 @@ function petSearch(zipCode, radius, typeOf) {
         return response.json();
       })
       .then(responseJson => {
-        console.log(responseJson)
+        console.log(responseJson);
         store.pets = responseJson.data;
-        render(store.pets)
+        render(store.pets);
       });
   } catch (error) {
     console.error("Error:", error);
   }
 }
+
 function render(pets) {
   const pics = Object.keys(store.pics)
-          .map(pics => `<div>${store.pics[pics].animalPictures}</div>`)
-          .join("");
-        const petList = Object.keys(pets)
-          .map(
-            pet =>
-            (pets[pet].animalPictures.length > 0) ?
-              `<div class="animal" data-id="${pet}">
+    .map(pics => `<div>${store.pics[pics].animalPictures}</div>`)
+    .join("");
+  const petList = Object.keys(pets)
+    .map(pet =>
+      pets[pet].animalPictures.length > 0
+        ? `<div class="animal" data-id="${pet}">
               <div><img src="${pets[pet].animalPictures[0].small.url}" alt="No Image"/></div>
               <div>${pets[pet].animalName}</div>
               <div>${pets[pet].animalBreed}</div>
               <div>${pets[pet].animalAgeString}</div>
               <a href="#" class="moreInfo">More Info</a><br>
               <div class="description">${pets[pet].animalDescription}</div>
-              </div>` : ''
-          )
-          .join(""); 
-        $(".nextButton").show();
-        displayResults(petList, pics, showMoreInfoHandler);
+              </div>`
+        : ""
+    )
+    .join("");
+  $(".nextButton").show();
+  displayResults(petList, pics, showMoreInfoHandler);
 }
 
 function showMoreInfoHandler(event) {
@@ -323,7 +324,7 @@ function displayResults(results) {
   $(".moreInfo").on("click", showMoreInfoHandler);
   if (results == 0) {
     $(".errorMessage").html("No results. Please try your search again.");
-    $('.nextButton').hide();
+    $(".nextButton").hide();
   }
   $("#btnClose").on("click", event => {
     $(".modal").css("display", "none");
@@ -335,6 +336,7 @@ function searchHandler() {
   const zipCode = $(".zipSearch").val();
   const radius = $(".radiusValue").val();
   const typeOf = $(".type").val();
+  $(".searchResults").html("<h2> Loading...</h2>");
   petSearch(zipCode, radius, typeOf);
   $(".searchButtonTwo").show();
 }
@@ -350,11 +352,53 @@ function watchForm() {
     searchHandler();
     newSearch();
     $(".nextButton").on("click", previousButtonHandler);
+    $(".ageOfPet").show();
+    $(".sizeOfPet").show();
+    $(".sexOfPet").show();
   });
-  $(".ageOfPet").change(event => {
-    const age = $(".ageOfPet").val();
-    const filteredPets = store.pets.filter(pet => pet.animalGeneralAge === age)
-  })
+
+  $(".age").change(event => {
+    const age = $(".age").val();
+    if (age !== "0") {
+      const filteredPets = {};
+      Object.keys(store.pets).forEach(key => {
+        if (store.pets[key].animalGeneralAge === age) {
+          filteredPets[key] = store.pets[key];
+        }
+      });
+      render(filteredPets);
+    } else {
+      render(store.pets);
+    }
+  });
+  $(".size").change(event => {
+    const size = $(".size").val();
+    if (size !== "0") {
+      const filteredPets = {};
+      Object.keys(store.pets).forEach(key => {
+        if (store.pets[key].animalGeneralSizePotential === size) {
+          filteredPets[key] = store.pets[key];
+        }
+      });
+      render(filteredPets);
+    } else {
+      render(store.pets);
+    }
+  });
+  $(".sex").change(event => {
+    const sex = $(".sex").val();
+    if (sex !== "0") {
+      const filteredPets = {};
+      Object.keys(store.pets).forEach(key => {
+        if (store.pets[key].animalSex === sex) {
+          filteredPets[key] = store.pets[key];
+        }
+      });
+      render(filteredPets);
+    } else {
+      render(store.pets);
+    }
+  });
 }
 loadSpecies();
 $(watchForm);
