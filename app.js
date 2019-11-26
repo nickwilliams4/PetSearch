@@ -328,7 +328,6 @@ function displayResults(results) {
   }
   $("#btnClose").on("click", event => {
     $(".modal").css("display", "none");
-    searchHandler();
   });
 }
 
