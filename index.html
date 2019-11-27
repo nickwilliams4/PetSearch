@@ -4,15 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="main.css" />
     <title>Pet Search</title>
   </head>
 
   <body>
     <div class="container">
-      <h1>Welcome to Pet Search!</h1>
+      <h1>Welcome to Pet Search</h1>
+      <div class="puppyPic"><img src="puppydogs.jpeg"></div>
       <h3>Find a pet available for adoption by completing the form below</h3>
       <form class="searchForm">
+        <div class="searchCriteria">
         <label for="zipCode">ZIP Code:</label>
         <input type="text" name="zipSearch" class="zipSearch" required />
 
@@ -29,7 +32,7 @@
           Type of Pet:
           <select class="type"> </select>
         </div>
-     
+      </div>
 
         <input type="submit" value="Run New Search" class="searchButtonTwo" />
         <div class="ageOfPet">
@@ -72,7 +75,7 @@
         <!-- <a href="#" class="previous">&laquo; Previous</a>
         <a href="#" class="nextButton">Next &raquo;</a><br /><br /> -->
 
-        <input type="submit" value="Search for Pets!" class="searchButton" />
+        <input type="submit" value="Search for Pets" class="searchButton" />
         <input
           type="button"
           value="Start New Search"
