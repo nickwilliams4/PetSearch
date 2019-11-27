@@ -33,10 +33,17 @@ h1 {
   font-size: 22px;
   display: block;
   text-align: center;
+  color:  rgb(125, 125, 125);
 }
 body {
   margin: 0;
   background: rgba(126, 170, 112, 0.2);
+}
+h3 {
+  color:  rgb(125, 125, 125);
+}
+.searchCriteria {
+  color:  rgb(92, 92, 92);
 }
 h3, .searchCriteria {
   font-family: 'IBM Plex Mono', monospace;
