@@ -363,8 +363,8 @@ function watchForm() {
     $(".ageOfPet").show();
     $(".sizeOfPet").show();
     $(".sexOfPet").show();
+    filterPets();
   });
-
   $(".age").change(event => {
     const age = $(".age").val();
     if (age !== "0") {
@@ -407,6 +407,17 @@ function watchForm() {
       render(store.pets);
     }
   });
+  function filterPets(age, size, sex){
+    let filtered = {};
+    Object.keys(store.pets).forEach(key => {
+        if ((sex != "0" && store.pets[key].animalSex === sex) ||
+            (size != "0" && store.pets[key].animalGeneralSizePotential === size) ||
+            (age != "0" && store.pets[key].animalGeneralAge === age)) {
+                filtered[key] = store.pets[key];
+            }
+    });
+    return filtered;
+}
 }
 loadSpecies();
 $(watchForm);
