@@ -53,7 +53,7 @@ h3, .searchCriteria {
  .searchButton { /*from CSS tricks */
   font-family: 'IBM Plex Mono', monospace;
   margin: 20px;
-  border-top: 1px solid #96d1f8;
+  /* border-top: 1px solid #96d1f8; */
   background: #418759;
   background: -webkit-gradient(linear, left top, left bottom, from(#3ac48b), to(#418759));
   background: -webkit-linear-gradient(top, #3ac48b, #418759);
