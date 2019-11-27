@@ -34,7 +34,10 @@ h1 {
   display: block;
   text-align: center;
 }
-
+body {
+  margin: 0;
+  background: rgba(126, 170, 112, 0.2);
+}
 h3, .searchCriteria {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 15px;
