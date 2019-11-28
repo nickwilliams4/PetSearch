@@ -12,7 +12,7 @@
   <body>
     <div class="container">
       <h1>Welcome to Pet Search</h1>
-      <div class="puppyPic"><img src="puppydogs.jpeg"></div>
+      <img src="puppydogs.jpeg" class="puppyPic" alt="Picture of Two Puppies">
       <h3>Find a pet available for adoption by completing the form below</h3>
       <form class="searchForm">
         <div class="searchCriteria">
@@ -67,9 +67,11 @@
                 Type of Breed:
                 <select class="breed"> </select>
               </div>
-            <div class="clearFilters">
-              <button>Clear Filters</button>
-            </div>
+              <input
+          type="button"
+          value="Clear Filters"
+          class="clearFilters"
+        />
 
         <div class="searchResults"></div>
         <p class="errorMessage"></p>

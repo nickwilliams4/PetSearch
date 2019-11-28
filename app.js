@@ -182,7 +182,7 @@ function render(pets) {
     .map(pet =>
       pets[pet].animalPictures.length > 0
         ? `<div class="animal" data-id="${pet}">
-              <div><img src="${pets[pet].animalPictures[0].small.url}" alt="No Image"/></div>
+              <img src="${pets[pet].animalPictures[0].small.url}" alt="No Image" style="width: 200px"/>
               <div>${pets[pet].animalName}</div>
               <div>${pets[pet].animalBreed}</div>
               <div>${pets[pet].animalAgeString}</div>

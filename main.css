@@ -1,9 +1,16 @@
+* {
+  font-family: 'IBM Plex Mono', monospace;
+  color:  rgb(92, 92, 92);
+}
 .description, .newSearchButton, .searchButtonTwo, .clearFilters, .sexOfPet, .nextButton, .previous, .breedOfPet, .sizeOfPet, .ageOfPet {
   display: none;
 }
 .animal {
   margin-top: 10px;
-  border-bottom: solid 0.5px rgba(0, 0, 0, 0.2);
+  border: solid 0.5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  border-radius: 20px;
+  background: rgb(183, 233, 188);
 }
 .modal {
   position: fixed;
@@ -29,29 +36,19 @@
   top: 13%;
 }
 h1 {
-  font-family: 'IBM Plex Mono', monospace;
   font-size: 22px;
   display: block;
   text-align: center;
-  color:  rgb(92, 92, 92);
 }
 body {
   margin: 0;
   background: rgba(126, 170, 112, 0.2);
 }
-h3 {
-  color:  rgb(92, 92, 92);
-}
-.searchCriteria {
-  color:  rgb(92, 92, 92);
-}
 h3, .searchCriteria {
-  font-family: 'IBM Plex Mono', monospace;
   font-size: 15px;
   text-align: center;
 }
- .searchButton { /*from CSS tricks */
-  font-family: 'IBM Plex Mono', monospace;
+ .searchButton, .searchButtonTwo, .clearFilters, .newSearchButton { /*from CSS tricks */
   margin: 20px;
   /* border-top: 1px solid #96d1f8; */
   background: #418759;
@@ -82,7 +79,7 @@ h3, .searchCriteria {
     border-top-color: #1b435e;
     background: #1b435e;
     }
-img {
+.puppyPic {
   height: 200px;
   width: 100%;
   display: block;
