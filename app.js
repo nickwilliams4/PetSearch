@@ -183,12 +183,14 @@ function render(pets) {
       pets[pet].animalPictures.length > 0
         ? `<div class="animal" data-id="${pet}">
               <img src="${pets[pet].animalPictures[0].small.url}" alt="No Image" style="width: 200px"/>
+               <div class=animalDescriptionRetured" style="border-radius: 30px 30px 20px 20px; background: white">
               <div>${pets[pet].animalName}</div>
               <div>${pets[pet].animalBreed}</div>
               <div>${pets[pet].animalAgeString}</div>
               <div>${pets[pet].animalLocationCitystate}</div>
               <a href="#" class="moreInfo">More Info</a><br>
               <div class="description">${pets[pet].animalDescription}</div>
+                </div>
               </div>`
         : ""
     )
