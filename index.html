@@ -32,10 +32,10 @@
           Type of Pet:
           <select class="type"> </select>
         </div>
+        <input type="submit" value="Search Again" class="searchButtonTwo" />
         <input type="submit" value="Search for Pets" class="searchButton" />
       </div>
-
-        <input type="submit" value="Run New Search" class="searchButtonTwo" />
+      <div class="filtersDiv">
         <div class="ageOfPet">
             Filter by Age:
             <select class="age">
@@ -63,15 +63,12 @@
                   <option value="Female">Female</option>
                 </select>
               </div>
-            <div class="breedOfPet" required>
-                Type of Breed:
-                <select class="breed"> </select>
-              </div>
               <input
-          type="button"
-          value="Clear Filters"
-          class="clearFilters"
-        />
+              type="button"
+              value="Clear Filters"
+              class="clearFilters"
+            />
+            </div>
 
         <div class="searchResults"></div>
         <p class="errorMessage"></p>

@@ -11,6 +11,9 @@
   text-align: center;
   border-radius: 20px;
   background: rgb(183, 233, 188);
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
 }
 .modal {
   position: fixed;
@@ -91,4 +94,8 @@ h3, .searchCriteria {
   border-radius: 10px;
   background: rgb(183, 233, 188);
   padding: 10px;
+}
+.filtersDiv {
+  text-align: center;
+  margin: 20px;
 }
