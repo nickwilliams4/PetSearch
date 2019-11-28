@@ -182,15 +182,13 @@ function render(pets) {
     .map(pet =>
       pets[pet].animalPictures.length > 0
         ? `<div class="animal" data-id="${pet}">
-              <img src="${pets[pet].animalPictures[0].small.url}" alt="No Image" style="width: 200px"/>
-               <div class=animalDescriptionRetured" style="border-radius: 30px 30px 20px 20px; background: white">
-              <div>${pets[pet].animalName}</div>
-              <div>${pets[pet].animalBreed}</div>
-              <div>${pets[pet].animalAgeString}</div>
-              <div>${pets[pet].animalLocationCitystate}</div>
-              <a href="#" class="moreInfo">More Info</a><br>
+              <img src="${pets[pet].animalPictures[0].original.url}" alt="No Image" style="width: 200px"/>
+              <div class="animalDescription">${pets[pet].animalName}</div>
+              <div class="animalDescription">${pets[pet].animalBreed}</div>
+              <div class="animalDescription">${pets[pet].animalAgeString}</div>
+              <div class="animalDescription">${pets[pet].animalLocationCitystate}</div>
+              <a href="#" class="moreInfo" style="background: white">More Info</a>
               <div class="description">${pets[pet].animalDescription}</div>
-                </div>
               </div>`
         : ""
     )
@@ -210,7 +208,7 @@ function showMoreInfoHandler(event) {
   $(".name").html(animal.animalName);
   $(".petDescription").html(animal.animalDescription);
   $(".image").html(
-    animal.animalPictures.map(pic => `<img src="${pic.small.url}"/>`).join("")
+    animal.animalPictures.map(pic => `<img src="${pic.original.url} "style="width: 200px"/>`).join("")
   );
   $(".petLocation").html(animal.locationName);
   $(".locationUrl").html(`<a href="${animal.locationUrl}" target="blank">${animal.locationUrl}</a>`);

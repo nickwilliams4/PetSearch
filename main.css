@@ -5,11 +5,15 @@
 .description, .newSearchButton, .searchButtonTwo, .clearFilters, .sexOfPet, .nextButton, .previous, .breedOfPet, .sizeOfPet, .ageOfPet {
   display: none;
 }
+.animalDescription {
+  background: white;
+}
 .animal {
   margin-top: 10px;
   border: solid 0.5px rgba(0, 0, 0, 0.2);
   text-align: center;
-  border-radius: 50px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
   background: rgb(183, 233, 188);
   margin-left: auto;
   margin-right: auto;
