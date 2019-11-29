@@ -7,14 +7,14 @@
 }
 .animalDescription {
   background: white;
+  flex: 1;
 }
-.moreInfo {
-  background: white;
-  margin: 131px;
-}
+
 .animal {
+  display: flex;
+  flex-direction: column;
   margin-top: 10px;
-  border: solid 0.5px rgba(0, 0, 0, 0.2);
+  border: solid 5px rgba(6, 36, 18, 0.2);
   text-align: center;
   border-top-left-radius: 50px;
   border-top-right-radius: 50px;
@@ -22,6 +22,20 @@
   margin-left: auto;
   margin-right: auto;
   width: 90%;
+  height: 300px;
+}
+.petImg {
+  flex: 1;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+.petResultImg {
+  object-fit: cover;
+  width: 100%;
+}
+.searchResults {
+  display: grid;
+  grid-template-columns: 1fr;
 }
 .modal {
   position: fixed;
@@ -109,12 +123,14 @@ h3, .searchCriteria {
 }
 @media screen and (min-width: 400px) {
   .puppyPic {
-    height: 470px;
-    width: 100%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    object-fit: cover;
+    display: none;
+  }
+  .myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
   }
   .animal {
     width: 360px;
@@ -138,4 +154,28 @@ h3, .searchCriteria {
   label {
     padding: 10px;
   }
+}
+
+@media screen and (min-width: 800px) {
+  .animal {
+    width: 350px;
+  }
+  .puppyPic {
+    display: none;
+  }
+  .myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    opacity: .7;
+  }
+  .searchCriteria {
+    background: none;
+  }
+  input {
+    background: none;
+  }
+ 
 }

@@ -182,13 +182,17 @@ function render(pets) {
     .map(pet =>
       pets[pet].animalPictures.length > 0
         ? `<div class="animal" data-id="${pet}">
-              <img src="${pets[pet].animalPictures[0].original.url}" alt="No Image" style="width: 200px"/>
-              <div class="animalDescription">${pets[pet].animalName}</div>
-              <div class="animalDescription">${pets[pet].animalBreed}</div>
-              <div class="animalDescription">${pets[pet].animalAgeString}</div>
-              <div class="animalDescription">${pets[pet].animalLocationCitystate}</div>
+              <div class="petImg">
+              <img src="${pets[pet].animalPictures[0].original.url}" alt="No Image" class="petResultImg"/>
+              </div>
+              <div class="animalDescription">
+              <div>${pets[pet].animalName}</div>
+              <div>${pets[pet].animalBreed}</div>
+              <div>${pets[pet].animalAgeString}</div>
+              <div>${pets[pet].animalLocationCitystate}</div>
               <a href="#" class="moreInfo">More Info</a>
               <div class="description">${pets[pet].animalDescription}</div>
+              </div>
               </div>`
         : ""
     )
@@ -200,7 +204,7 @@ function render(pets) {
 function showMoreInfoHandler(event) {
   event.preventDefault();
   const id = $(event.target)
-    .parent()
+    .parent().parent()
     .data("id");
 
   const animal = store.pets[id];
