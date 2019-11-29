@@ -1,18 +1,40 @@
 * {
-  font-family: 'IBM Plex Mono', monospace;
-  color:  rgb(92, 92, 92);
+  font-family: "IBM Plex Mono", monospace;
+  color: rgb(92, 92, 92);
 }
-.description, .newSearchButton, .searchButtonTwo, .clearFilters, .sexOfPet, .nextButton, .previous, .breedOfPet, .sizeOfPet, .ageOfPet {
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.description,
+.newSearchButton,
+.searchButtonTwo,
+.clearFilters,
+.sexOfPet,
+.nextButton,
+.previous,
+.breedOfPet,
+.sizeOfPet,
+.ageOfPet {
   display: none;
 }
+
 .animalDescription {
   background: white;
   flex: 1;
 }
 
+.container {
+  width: 99%;
+}
+
 .animal {
   display: flex;
   flex-direction: column;
+  justify-content: stretch;
   margin-top: 10px;
   border: solid 5px rgba(6, 36, 18, 0.2);
   text-align: center;
@@ -22,7 +44,8 @@
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  height: 300px;
+  max-width: 350px;
+  height: 400px;
 }
 .petImg {
   flex: 1;
@@ -32,10 +55,16 @@
 .petResultImg {
   object-fit: cover;
   width: 100%;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  max-height: 200px;
 }
 .searchResults {
   display: grid;
   grid-template-columns: 1fr;
+  justify-items: center;
+  margin: 0 auto;
+  width: 95%;
 }
 .modal {
   position: fixed;
@@ -56,10 +85,6 @@
   border-radius: 10px;
   overflow: scroll;
 }
-.container {
-  position: absolute;
-  top: 13%;
-}
 h1 {
   font-size: 22px;
   display: block;
@@ -69,15 +94,26 @@ body {
   margin: 0;
   background: rgba(126, 170, 112, 0.2);
 }
-h3, .searchCriteria {
+h3,
+.searchCriteria {
   font-size: 15px;
   text-align: center;
 }
- .searchButton, .searchButtonTwo, .clearFilters, .newSearchButton { /*from CSS tricks */
+.searchButton,
+.searchButtonTwo,
+.clearFilters,
+.newSearchButton {
+  /*from CSS tricks */
   margin: 20px;
   /* border-top: 1px solid #96d1f8; */
   background: #418759;
-  background: -webkit-gradient(linear, left top, left bottom, from(#3ac48b), to(#418759));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#3ac48b),
+    to(#418759)
+  );
   background: -webkit-linear-gradient(top, #3ac48b, #418759);
   background: -moz-linear-gradient(top, #3ac48b, #418759);
   background: -ms-linear-gradient(top, #3ac48b, #418759);
@@ -94,16 +130,16 @@ h3, .searchCriteria {
   font-size: 12px;
   text-decoration: none;
   vertical-align: middle;
-  }
- .searchButton:hover {
-    border-top-color: #174731;
-    background: #174731;
-    color: #ccc;
-    }
- .searchButton:active {
-    border-top-color: #1b435e;
-    background: #1b435e;
-    }
+}
+.searchButton:hover {
+  border-top-color: #174731;
+  background: #174731;
+  color: #ccc;
+}
+.searchButton:active {
+  border-top-color: #1b435e;
+  background: #1b435e;
+}
 .puppyPic {
   height: 200px;
   width: 100%;
@@ -129,21 +165,16 @@ h3, .searchCriteria {
     position: fixed;
     right: 0;
     bottom: 0;
-    min-width: 100%; 
+    min-width: 100%;
     min-height: 100%;
   }
-  .animal {
-    width: 360px;
-    display: inline-block;
-    margin: 11px;
-  }
+
   .searchCriteria {
     display: inline-flex;
     font-size: 20px;
     align-items: center;
     justify-content: center;
     width: 100%;
-
   }
   input {
     height: 30px;
@@ -157,9 +188,6 @@ h3, .searchCriteria {
 }
 
 @media screen and (min-width: 800px) {
-  .animal {
-    width: 350px;
-  }
   .puppyPic {
     display: none;
   }
@@ -167,9 +195,9 @@ h3, .searchCriteria {
     position: fixed;
     right: 0;
     bottom: 0;
-    min-width: 100%; 
+    min-width: 100%;
     min-height: 100%;
-    opacity: .7;
+    opacity: 0.7;
   }
   .searchCriteria {
     background: none;
@@ -177,5 +205,14 @@ h3, .searchCriteria {
   input {
     background: none;
   }
- 
+
+  .searchResults {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .searchResults {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
