@@ -109,7 +109,7 @@ h3, .searchCriteria {
 }
 @media screen and (min-width: 400px) {
   .puppyPic {
-    height: 350px;
+    height: 450px;
     width: 100%;
     display: block;
     margin-left: auto;
@@ -120,5 +120,12 @@ h3, .searchCriteria {
     width: 360px;
     display: inline-block;
     margin: 11px;
+  }
+  .searchCriteria {
+    display: inline-flex;
+    font-size: 20px;
+  }
+  input {
+    height: 30px;
   }
 }
