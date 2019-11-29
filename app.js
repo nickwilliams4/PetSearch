@@ -204,7 +204,8 @@ function render(pets) {
 function showMoreInfoHandler(event) {
   event.preventDefault();
   const id = $(event.target)
-    .parent().parent()
+    .parent()
+    .parent()
     .data("id");
 
   const animal = store.pets[id];
@@ -212,10 +213,14 @@ function showMoreInfoHandler(event) {
   $(".name").html(animal.animalName);
   $(".petDescription").html(animal.animalDescription);
   $(".image").html(
-    animal.animalPictures.map(pic => `<img src="${pic.original.url} "style="width: 200px"/>`).join("")
+    animal.animalPictures
+      .map(pic => `<img src="${pic.original.url} "style="width: 200px"/>`)
+      .join("")
   );
   $(".petLocation").html(animal.locationName);
-  $(".locationUrl").html(`<a href="${animal.locationUrl}" target="blank">${animal.locationUrl}</a>`);
+  $(".locationUrl").html(
+    `<a href="${animal.locationUrl}" target="blank">${animal.locationUrl}</a>`
+  );
   $(".modal").css("display", "flex");
 }
 
@@ -226,6 +231,7 @@ function previousButtonHandler(event) {
 
 function displayResults(results) {
   $(".searchResults").html(results);
+  $("body").css("align-items", "start");
   $(".moreInfo").on("click", showMoreInfoHandler);
   if (results == 0) {
     $(".errorMessage").html("No results. Please try your search again.");
@@ -244,7 +250,7 @@ function searchHandler() {
   petSearch(zipCode, radius, typeOf);
   $(".searchButtonTwo").show();
   $(".clearFilters").show();
-  $(".errorMessage").empty()
+  $(".errorMessage").empty();
   $(".clearFilters").on("click", event => {
     event.preventDefault();
     $(".age").val("0");
@@ -312,17 +318,19 @@ function watchForm() {
       render(store.pets);
     }
   });
-  function filterPets(age, size, sex){
+  function filterPets(age, size, sex) {
     let filtered = {};
     Object.keys(store.pets).forEach(key => {
-        if ((sex != "0" && store.pets[key].animalSex === sex) ||
-            (size != "0" && store.pets[key].animalGeneralSizePotential === size) ||
-            (age != "0" && store.pets[key].animalGeneralAge === age)) {
-                filtered[key] = store.pets[key];
-            }
+      if (
+        (sex != "0" && store.pets[key].animalSex === sex) ||
+        (size != "0" && store.pets[key].animalGeneralSizePotential === size) ||
+        (age != "0" && store.pets[key].animalGeneralAge === age)
+      ) {
+        filtered[key] = store.pets[key];
+      }
     });
     return filtered;
-}
+  }
 }
 loadSpecies();
 $(watchForm);
