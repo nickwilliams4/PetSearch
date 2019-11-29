@@ -82,7 +82,7 @@ function petSearch(zipCode, radius, typeOf) {
     objectAction: "publicSearch",
     search: {
       resultStart: "0",
-      resultLimit: "25",
+      resultLimit: "26",
       resultSort: "animalID",
       resultOrder: "asc",
       filters: [
@@ -187,7 +187,7 @@ function render(pets) {
               <div class="animalDescription">${pets[pet].animalBreed}</div>
               <div class="animalDescription">${pets[pet].animalAgeString}</div>
               <div class="animalDescription">${pets[pet].animalLocationCitystate}</div>
-              <a href="#" class="moreInfo" style="background: white">More Info</a>
+              <a href="#" class="moreInfo">More Info</a>
               <div class="description">${pets[pet].animalDescription}</div>
               </div>`
         : ""

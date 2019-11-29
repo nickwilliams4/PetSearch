@@ -8,6 +8,10 @@
 .animalDescription {
   background: white;
 }
+.moreInfo {
+  background: white;
+  margin: 131px;
+}
 .animal {
   margin-top: 10px;
   border: solid 0.5px rgba(0, 0, 0, 0.2);
@@ -102,4 +106,19 @@ h3, .searchCriteria {
 .filtersDiv {
   text-align: center;
   margin: 20px;
+}
+@media screen and (min-width: 400px) {
+  .puppyPic {
+    height: 350px;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover;
+  }
+  .animal {
+    width: 360px;
+    display: inline-block;
+    margin: 11px;
+  }
 }
