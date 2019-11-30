@@ -246,6 +246,10 @@ h3,
   .searchResults {
     grid-template-columns: 1fr 1fr;
   }
+ 
+  .sizeOfPet, .sexOfPet, .radiusDropdown, .typeOfPet {
+    margin-left: 3%;
+  }
   .container {
     width: 99%;
     background: radial-gradient(gray, transparent);
