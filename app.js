@@ -249,6 +249,7 @@ function searchHandler() {
   $(".searchResults").html("<h2> Loading...</h2>");
   petSearch(zipCode, radius, typeOf);
   $(".searchButtonTwo").show();
+  $("h3").hide();
   $(".clearFilters").show();
   $(".errorMessage").empty();
   $(".clearFilters").on("click", event => {

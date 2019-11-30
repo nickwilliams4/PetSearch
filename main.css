@@ -1,6 +1,5 @@
 * {
-  font-family: "IBM Plex Mono", monospace;
-  /* color: rgb(92, 92, 92); */
+ font-family: 'Varela Round', sans-serif;
 }
 
 body {
@@ -8,6 +7,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  color: #174731;
 }
 .description,
 .newSearchButton,
@@ -116,7 +116,6 @@ h3,
 .clearFilters,
 .newSearchButton {
   /*from CSS tricks */
-  margin: 10px;
   /* border-top: 1px solid #96d1f8; */
   background: #418759;
   background: -webkit-gradient(
@@ -169,14 +168,16 @@ h3,
   text-align: center;
   margin: 20px;
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 500px) {
   .puppyPic {
     height: 400px;
   }
 .filtersDiv{
   display: inline-flex;
+  height: 40px;
+  border-radius: 40px;
 }
-  .searchCriteria {
+  .searchCriteria, .filtersDiv {
     display: inline-flex;
     font-size: 17px;
     align-items: center;
@@ -198,7 +199,21 @@ h3,
   .puppyPic {
     display: none;
   }
- 
+  h1 {
+    font-size: 60px;
+    color: navy;
+  }
+  h3 {
+    font-size: 25px;
+    color: navy;
+  }
+  .searchCriteria, .filtersDiv, .errorMessage, h2 {
+    color: navy;
+  }
+  .searchButton:hover, .searchButton:active, .clearFilters:hover, .searchButtonTwo:hover, .newSearchButton:hover {
+    background: aliceblue;
+    color: navy;
+  }
   input {
     height: 20px;
   }
@@ -210,17 +225,22 @@ h3,
   }
   .searchCriteria {
     background: none;
+    font-size: 20px;
   }
   input {
     background: none;
     background: white;
   }
+  .clearFilters {
+    height: 30px;
+  }
   .searchButton, .searchButtonTwo, .newSearchButton, .clearFilters {
     height: 30px;
-    background:gray;
+    background:navy;
   }
-  .clearFilters {
-    display: inline;
+  
+  .animal {
+    border: solid 5px navy;
   }
 
   .searchResults {
@@ -236,10 +256,19 @@ h3,
   .searchResults {
     grid-template-columns: 1fr 1fr 1fr;
   }
- 
+ h3 {
+   font-size: 35px;
+ }
+ .searchButton:hover, .searchButton:active {
+  background: aliceblue;
+  color: navy;
+}
   input {
     height: 20px;
     background: white;
+  }
+  .filtersDiv, .searchCriteria {
+    font-size: 25px;
   }
   .myVideo {
     position: fixed;
