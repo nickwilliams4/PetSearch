@@ -1,6 +1,6 @@
 * {
   font-family: "IBM Plex Mono", monospace;
-  color: rgb(92, 92, 92);
+  /* color: rgb(92, 92, 92); */
 }
 
 body {
@@ -21,8 +21,28 @@ body {
 .ageOfPet {
   display: none;
 }
+.myVideo {
+  position: fixed;
+  z-index: -1;
+  opacity: 0.7;
+}
 .container {
   width: 99%;
+}
+@media (min-aspect-ratio: 16/9) {
+  .myVideo {
+    height: auto;
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  .myVideo {
+    height: auto;
+  }
+}
+@media screen and (max-width: 750px) {
+.myVideo {
+  display: none;
+}
 }
 .animal {
   display: flex;
@@ -96,7 +116,7 @@ h3,
 .clearFilters,
 .newSearchButton {
   /*from CSS tricks */
-  margin: 20px;
+  margin: 10px;
   /* border-top: 1px solid #96d1f8; */
   background: #418759;
   background: -webkit-gradient(
@@ -153,7 +173,7 @@ h3,
   .puppyPic {
     height: 400px;
   }
-.filtersDiv {
+.filtersDiv{
   display: inline-flex;
 }
   .searchCriteria {
@@ -178,10 +198,12 @@ h3,
   .puppyPic {
     display: none;
   }
+ 
+  input {
+    height: 20px;
+  }
   .myVideo {
     position: fixed;
-    right: 0;
-    bottom: 0;
     min-width: 100%;
     min-height: 100%;
     opacity: 0.7;
@@ -191,15 +213,42 @@ h3,
   }
   input {
     background: none;
+    background: white;
+  }
+  .searchButton, .searchButtonTwo, .newSearchButton, .clearFilters {
+    height: 30px;
+    background:gray;
+  }
+  .clearFilters {
+    display: inline;
   }
 
   .searchResults {
     grid-template-columns: 1fr 1fr;
+  }
+  .container {
+    width: 99%;
+    background: radial-gradient(gray, transparent);
   }
 }
 
 @media screen and (min-width: 1200px) {
   .searchResults {
     grid-template-columns: 1fr 1fr 1fr;
+  }
+ 
+  input {
+    height: 20px;
+    background: white;
+  }
+  .myVideo {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0.7;
+  }
+  .container {
+    width: 99%;
+    background: radial-gradient(gray, transparent);
   }
 }
