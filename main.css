@@ -246,9 +246,6 @@ h3,
     background: none;
     background: white;
   }
-  /* .clearFilters {
-    height: 30px;
-  } */
   .searchButton, 
   .searchButtonTwo, 
   .newSearchButton, 
@@ -264,7 +261,6 @@ h3,
   .searchResults {
     grid-template-columns: 1fr 1fr;
   }
- 
   .sizeOfPet, 
   .sexOfPet, 
   .radiusDropdown, 
@@ -278,7 +274,6 @@ h3,
     width: 99%;
     background: radial-gradient(gray, transparent);
   }
-  
 }
 @media screen and (min-width: 1200px) {
  .searchResults {
