@@ -1,4 +1,4 @@
-# PetSearch
+# Pet Search
 
 ## Live Demo   
 https://nickwilliams4.github.io/PetSearch/
