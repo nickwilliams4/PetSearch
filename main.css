@@ -65,7 +65,7 @@ body {
   border-top-right-radius: 50px;
 }
 .petResultImg {
-  object-fit: cover;
+  /* object-fit: cover; */
   width: 100%;
   border-top-left-radius: 45px;
   border-top-right-radius: 45px;
@@ -141,6 +141,10 @@ h3,
   font-size: 12px;
   text-decoration: none;
   vertical-align: middle;
+  margin: 10px;
+}
+.newSearchButtonTwo {
+  display: flex;
 }
 .searchButton:hover {
   border-top-color: #174731;
@@ -172,11 +176,12 @@ h3,
   .puppyPic {
     height: 400px;
   }
-.filtersDiv{
+.filtersDiv {
   display: inline-flex;
   height: 40px;
   border-radius: 40px;
 }
+
   .searchCriteria, .filtersDiv {
     display: inline-flex;
     font-size: 17px;
@@ -247,7 +252,7 @@ h3,
     grid-template-columns: 1fr 1fr;
   }
  
-  .sizeOfPet, .sexOfPet, .radiusDropdown, .typeOfPet {
+  .sizeOfPet, .sexOfPet, .radiusDropdown, .typeOfPet, .searchButton, .searchButtonTwo, .clearFilters {
     margin-left: 3%;
   }
   .container {
