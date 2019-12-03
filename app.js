@@ -8,40 +8,7 @@ const store = {
   breed: []
 };
 
-// function loadBreed() {
-//   const url = "https://api.rescuegroups.org/http/v2.json";
-//   const data = {
-//     apikey: "PlqQjhlx",
-//     objectType: "animalBreeds",
-//     objectAction: "publicList"
-//   };
-//   try {
-//     const response = fetch(url, {
-//       method: "POST",
-//       body: JSON.stringify(data),
-//       headers: {
-//         "Content-Type": "application/json"
-//       }
-//     })
-//       .then(response => {
-//         if (!response.ok) {
-//           throw new Error(response.statusText);
-//         }
-//         return response.json();
-//       })
-//       .then(responseJson => {
-//         store.breed = responseJson.data;
-//         const breedList = Object.keys(store.breed)
-//           .map(breeds => `<option value="${breeds}">${breeds}</option>`)
-//           .join("");
-//         $(".breed").html(breedList);
-//       });
-//   } catch (error) {
-//     console.error("Error:", error);
-//   }
-// }
-
-function loadSpecies() {
+function loadSpecies() { // This function populates the searchable pets on the welcome page
   const url = "https://api.rescuegroups.org/http/v2.json";
   const data = {
     apikey: "PlqQjhlx",
@@ -74,7 +41,7 @@ function loadSpecies() {
   }
 }
 
-function petSearch(zipCode, radius, typeOf) {
+function petSearch(zipCode, radius, typeOf) { // Data pulling from API
   const url = "https://api.rescuegroups.org/http/v2.json";
   const data = {
     apikey: "PlqQjhlx",
@@ -174,7 +141,7 @@ function petSearch(zipCode, radius, typeOf) {
   }
 }
 
-function render(pets) {
+function render(pets) { // The Pets and info that are displayed in search results
   const pics = Object.keys(store.pics)
     .map(pics => `<div>${store.pics[pics].animalPictures}</div>`)
     .join("");
@@ -201,7 +168,7 @@ function render(pets) {
   displayResults(petList, pics, showMoreInfoHandler);
 }
 
-function showMoreInfoHandler(event) {
+function showMoreInfoHandler(event) { // More Info Link 
   event.preventDefault();
   const id = $(event.target)
     .parent()
@@ -222,11 +189,6 @@ function showMoreInfoHandler(event) {
     `<a href="${animal.locationUrl}" target="blank">${animal.locationUrl}</a>`
   );
   $(".modal").css("display", "flex");
-}
-
-function previousButtonHandler(event) {
-  event.preventDefault();
-  $(".previous").show();
 }
 
 function displayResults(results) {

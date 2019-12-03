@@ -1,7 +1,6 @@
 * {
  font-family: 'Varela Round', sans-serif;
 }
-
 body {
   display: flex;
   justify-content: center;
@@ -29,21 +28,6 @@ body {
 .container {
   width: 99%;
 }
-@media (min-aspect-ratio: 16/9) {
-  .myVideo {
-    height: auto;
-  }
-}
-@media (max-aspect-ratio: 16/9) {
-  .myVideo {
-    height: auto;
-  }
-}
-@media screen and (max-width: 750px) {
-.myVideo {
-  display: none;
-}
-}
 .animal {
   display: flex;
   flex-direction: column;
@@ -65,7 +49,6 @@ body {
   border-top-right-radius: 50px;
 }
 .petResultImg {
-  /* object-fit: cover; */
   width: 100%;
   border-top-left-radius: 45px;
   border-top-right-radius: 45px;
@@ -116,7 +99,6 @@ h3,
 .clearFilters,
 .newSearchButton {
   /*from CSS tricks */
-  /* border-top: 1px solid #96d1f8; */
   background: #418759;
   background: -webkit-gradient(
     linear,
@@ -172,34 +154,48 @@ h3,
   text-align: center;
   margin: 20px;
 }
+@media (min-aspect-ratio: 16/9) {
+  .myVideo {
+    height: auto;
+  }
+}
+@media (max-aspect-ratio: 16/9) {
+  .myVideo {
+    height: auto;
+  }
+}
+@media screen and (max-width: 750px) {
+.myVideo {
+  display: none;
+}
+}
 @media screen and (min-width: 500px) {
   .puppyPic {
     height: 400px;
   }
-.filtersDiv {
+ .filtersDiv {
   display: inline-flex;
   height: 40px;
   border-radius: 40px;
 }
-
-  .searchCriteria, .filtersDiv {
+ .searchCriteria, 
+ .filtersDiv {
     display: inline-flex;
     font-size: 17px;
     align-items: center;
     justify-content: center;
     width: 100%;
-  }
-  input {
+}
+ input {
     height: 30px;
-  }
-  .searchButton {
+}
+ .searchButton {
     margin: 0;
-  }
-  label {
+}
+ label {
     padding: 10px;
   }
 }
-
 @media screen and (min-width: 750px) {
   .puppyPic {
     display: none;
@@ -212,10 +208,17 @@ h3,
     font-size: 25px;
     color: navy;
   }
-  .searchCriteria, .filtersDiv, .errorMessage, h2 {
+  .searchCriteria, 
+  .filtersDiv, 
+  .errorMessage, 
+  h2 {
     color: navy;
   }
-  .searchButton:hover, .searchButton:active, .clearFilters:hover, .searchButtonTwo:hover, .newSearchButton:hover {
+  .searchButton:hover, 
+  .searchButton:active, 
+  .clearFilters:hover, 
+  .searchButtonTwo:hover, 
+  .newSearchButton:hover {
     background: aliceblue;
     color: navy;
   }
@@ -239,7 +242,10 @@ h3,
   .clearFilters {
     height: 30px;
   }
-  .searchButton, .searchButtonTwo, .newSearchButton, .clearFilters {
+  .searchButton, 
+  .searchButtonTwo, 
+  .newSearchButton, 
+  .clearFilters {
     height: 30px;
     background:navy;
   }
@@ -252,7 +258,13 @@ h3,
     grid-template-columns: 1fr 1fr;
   }
  
-  .sizeOfPet, .sexOfPet, .radiusDropdown, .typeOfPet, .searchButton, .searchButtonTwo, .clearFilters {
+  .sizeOfPet, 
+  .sexOfPet, 
+  .radiusDropdown, 
+  .typeOfPet, 
+  .searchButton, 
+  .searchButtonTwo, 
+  .clearFilters {
     margin-left: 3%;
   }
   .container {
@@ -260,32 +272,32 @@ h3,
     background: radial-gradient(gray, transparent);
   }
 }
-
 @media screen and (min-width: 1200px) {
-  .searchResults {
+ .searchResults {
     grid-template-columns: 1fr 1fr 1fr;
   }
  h3 {
    font-size: 35px;
  }
- .searchButton:hover, .searchButton:active {
+ .searchButton:hover, 
+ .searchButton:active {
   background: aliceblue;
   color: navy;
 }
-  input {
+ input {
     height: 20px;
     background: white;
   }
-  .filtersDiv, .searchCriteria {
+ .filtersDiv, .searchCriteria {
     font-size: 25px;
   }
-  .myVideo {
+ .myVideo {
     position: fixed;
     min-width: 100%;
     min-height: 100%;
     opacity: 0.7;
   }
-  .container {
+ .container {
     width: 99%;
     background: radial-gradient(gray, transparent);
   }

@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="main.css" />
-    <title>Pet Search</title>
-  </head>
 
-  <body>
-      <video autoplay muted loop class="myVideo">
-          <source src="DogAtBeachVideo.mp4" type="video/mp4">
-        </video>
-    <div class="container">
-      <h1>Welcome to Pet Search</h1>
-      <img src="puppydogs.jpeg" class="puppyPic" alt="Picture of Two Puppies">
-      <h3>Find a pet available for adoption by completing the form below</h3>
-      <form class="searchForm">
-        <div class="searchCriteria">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css" />
+  <title>Pet Search</title>
+</head>
+
+<body>
+  <video autoplay muted loop class="myVideo">
+    <source src="DogAtBeachVideo.mp4" type="video/mp4">
+  </video>
+  <div class="container">
+    <h1>Welcome to Pet Search</h1>
+    <img src="puppydogs.jpeg" class="puppyPic" alt="Picture of Two Puppies">
+    <h3>Find a pet available for adoption by completing the form below</h3>
+    <form class="searchForm">
+      <div class="searchCriteria">
         <label for="zipCode">ZIP Code:</label>
         <input type="text" name="zipSearch" class="zipSearch" placeholder="Enter ZIP Code" required />
-  
+
         <div class="radiusDropdown" required>
           Search Radius:
           <select class="radiusValue">
@@ -40,64 +41,54 @@
       </div>
       <div class="filtersDiv">
         <div class="ageOfPet">
-            Filter by Age:
-            <select class="age">
-              <option value="0">-- Select One --</option>
-              <option value="Young">Young</option>
-              <option value="Adult">Adult</option>
-              <option value="Senior">Senior</option>
-            </select>
-          </div>
-          <div class="sizeOfPet">
-              Filter by Size:
-              <select class="size">
-                <option value="0">-- Select One --</option>
-                <option value="Small">Small</option>
-                <option value="Medium">Medium</option>
-                <option value="Large">Large</option>
-                <option value="X-Large">X-Large</option>
-              </select>
-            </div>
-            <div class="sexOfPet">
-                Filter by Sex:
-                <select class="sex">
-                  <option value="0">-- Select One --</option>
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                </select>
-              </div>
-              <input
-              type="button"
-              value="Clear Filters"
-              class="clearFilters"
-            />
-            </div>
-
-        <div class="searchResults"></div>
-        <p class="errorMessage"></p>
-        <!-- <a href="#" class="previous">&laquo; Previous</a>
-        <a href="#" class="nextButton">Next &raquo;</a><br /><br /> -->
-
-        <input
-          type="button"
-          value="Start New Search"
-          class="newSearchButton"
-          onClick="document.location.reload(true)"
-        />
-    </div>
-  </form>
-    <div class="modal">
-      <div class="wrapper">
-        <div class="name"></div>
-        <div class="image"></div>
-        <div class="petDescription"></div>
-        <div class="petLocation"></div>
-        <div class="locationUrl"></div>
-        <button id="btnClose">Close</button>
+          Filter by Age:
+          <select class="age">
+            <option value="0">-- Select One --</option>
+            <option value="Young">Young</option>
+            <option value="Adult">Adult</option>
+            <option value="Senior">Senior</option>
+          </select>
+        </div>
+        <div class="sizeOfPet">
+          Filter by Size:
+          <select class="size">
+            <option value="0">-- Select One --</option>
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+            <option value="X-Large">X-Large</option>
+          </select>
+        </div>
+        <div class="sexOfPet">
+          Filter by Sex:
+          <select class="sex">
+            <option value="0">-- Select One --</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+        <input type="button" value="Clear Filters" class="clearFilters" />
       </div>
+
+      <div class="searchResults"></div>
+      <p class="errorMessage"></p>
+
+      <input type="button" value="Start New Search" class="newSearchButton" onClick="document.location.reload(true)" />
+  </div>
+  </form>
+  <div class="modal">
+    <div class="wrapper">
+      <div class="name"></div>
+      <div class="image"></div>
+      <div class="petDescription"></div>
+      <div class="petLocation"></div>
+      <div class="locationUrl"></div>
+      <button id="btnClose">Close</button>
     </div>
-  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="app.js"></script>
-  </body>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
 </html>
