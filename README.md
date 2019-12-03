@@ -1,6 +1,6 @@
 # PetSearch
 
-## Live Demo:   
+## Live Demo   
 https://nickwilliams4.github.io/PetSearch/
 
 ## About Pet Search
@@ -8,3 +8,8 @@ Pet Search is an application that allows users to search for adoptable pets in a
 
 ## Technology
 Pet Search is powered by the use of HTML, CSS, JavaScript, and jQuery
+
+## Screenshots 
+
+Welcome page:
+![Welcome Page](WelcomePage.png)
