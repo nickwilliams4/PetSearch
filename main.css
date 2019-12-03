@@ -12,12 +12,9 @@ body {
 .newSearchButton,
 .searchButtonTwo,
 .clearFilters,
-.sexOfPet,
 .nextButton,
 .previous,
-.breedOfPet,
-.sizeOfPet,
-.ageOfPet {
+.filtersDiv {
   display: none;
 }
 .myVideo {
@@ -125,8 +122,10 @@ h3,
   vertical-align: middle;
   margin: 10px;
 }
-.newSearchButtonTwo {
-  display: flex;
+.searchButtonTwo,
+.clearFilters,
+.newSearchButton {
+  margin: 7px auto;
 }
 .searchButton:hover {
   border-top-color: #174731;
@@ -174,12 +173,14 @@ h3,
     height: 400px;
   }
  .filtersDiv {
-  display: inline-flex;
+  font-size: 17px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
   height: 40px;
   border-radius: 40px;
 }
- .searchCriteria, 
- .filtersDiv {
+ .searchCriteria {
     display: inline-flex;
     font-size: 17px;
     align-items: center;
