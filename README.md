@@ -13,3 +13,5 @@ Pet Search is powered by the use of HTML, CSS, JavaScript, and jQuery
 
 Welcome page:
 ![Welcome Page](WelcomePage.png)
+
+
